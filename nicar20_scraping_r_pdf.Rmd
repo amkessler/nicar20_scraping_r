@@ -59,13 +59,13 @@ But you can't download the PDFs from these urls yet, because complete urls start
 
 download the first pdf to the letter folder, using download.file() function
 ```{r}
-download.file("https://www.dol.gov/sites/dolgov/files/EBSA/laws-and-regulations/rules-and-regulations/public-comments/1210-AB85/00001.pdf", "~/Desktop/nicar2020/nicar_2020_scraping_r/letter/1.pdf", mode="wb")
+download.file("https://www.dol.gov/sites/dolgov/files/EBSA/laws-and-regulations/rules-and-regulations/public-comments/1210-AB85/00001.pdf", "letter/1.pdf", mode="wb")
 ```
 
 We can download multiple files using for loop.
 ```{r, eval=FALSE}
 
-download.folder = '~/Desktop/nicar2020/nicar_2020_scraping_r/letter/'
+download.folder = 'letter/'
 
 for(i in seq_along(urls)){
     pdf.name = paste(download.folder, i, '.pdf', sep = '')
@@ -78,7 +78,7 @@ Next you can use pdftools to parse the pdf files
 ```{r}
 #install.packages("pdftools")
 library(pdftools)
-base_directory<- '~/Desktop/nicar2020/nicar_2020_scraping_r/letter'
+base_directory<- 'letter'
 
 file.path(base_directory, "1.pdf") %>% pdf_text()
 
@@ -91,7 +91,7 @@ l1 = c() ##create an empty vector to store the letter numbers
 l2 = c() ##create an empty vector to store the text objects
 for(i in seq_along(urls)){
     
-    pdf.name = paste("~/Desktop/nicar2020/nicar_2020_scraping_r/letter/", i, '.pdf', sep = '') ##file name of the pdf to be extracted
+    pdf.name = paste("letter/", i, '.pdf', sep = '') ##file name of the pdf to be extracted
     txt = pdf_text(pdf.name) ##extract the text from the pdf
     out = capture.output(cat(txt)) ## turn the text into readable format
     l2 = c(l2,out) ## add the text object into the list
