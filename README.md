@@ -33,7 +33,7 @@ If you don't have access to IRE-provided laptops, you can download the files to 
 
 After the library is installed, you can load the course session by running this command in the console:
 
-`usethis::use_course("https://github.com/yhy6f/nicar20_scraping_r/archive/master.zip")`
+`usethis::use_course("https://github.com/amkessler/nicar20_scraping_r/archive/master.zip")`
 
 A local version of the repo should be saved to your desktop.
 
